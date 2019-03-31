@@ -1,7 +1,9 @@
 import React from "react";
 import {connect} from "react-redux";
-import MealFilter from "../components/CriteriaFilters/MealFilter/MealFilter"
-import CardList from "../components/cards/CardList/CardList"
+import MealFilter from "../../components/CriteriaFilters/MealFilter/MealFilter";
+import CardList from "../../components/cards/CardList/CardList";
+
+import Recipes from "../../components/pagecontainers/Recipes/Recipes"
 
 import {fetchRecipes} from "../actions/RecipesActions"
 
@@ -45,4 +47,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(Recipes);
