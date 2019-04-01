@@ -4,13 +4,13 @@ class MealFilter extends Component {
   render() {
     return (
       <>
-        <h1>Meal   </h1><h1>+</h1>
+        <h4>Meal   </h4><h4>+</h4>
         <input type="checkbox"></input><label>BreakFast</label>
         <input type="checkbox"></input><label>Lunch</label>
         <input type="checkbox"></input><label>Dinner</label>
         <input type="checkbox"></input><label>Dessert</label>
-        <h1>Ingredient (Meat)</h1> <h1>+</h1>
-        <h1>Ingredient  </h1> <h1>+</h1>
+        <h4>Ingredient (Meat)</h4> <h4>+</h4>
+        <h4>Ingredient  </h4> <h4>+</h4>
 
       </>
 
