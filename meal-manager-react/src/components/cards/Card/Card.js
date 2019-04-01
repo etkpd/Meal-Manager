@@ -7,8 +7,9 @@ const Card = ({ author, title, image, directions, ingredients }) => {
     <div className={styles.card}>
       
       <div>
-        <h2>{title}</h2>
-        <h3>Ingredients</h3>
+      <img src="pic_trulli.jpg" alt="Italian Trulli"></img>
+        <h4>{title}</h4>
+        <h5>Ingredients</h5>
         {
          ingredients.map((ingredient, i) => {
           return (
@@ -18,7 +19,7 @@ const Card = ({ author, title, image, directions, ingredients }) => {
           );
          })
         }
-        <h3>Directions</h3>
+        {/* <h3>Directions</h3>
         {
          directions.map((direction, i) => {
           return (
@@ -28,8 +29,9 @@ const Card = ({ author, title, image, directions, ingredients }) => {
             </>
           );
          })
-        }
+        } */}
       </div>
+    
     </div>
   );
 }
