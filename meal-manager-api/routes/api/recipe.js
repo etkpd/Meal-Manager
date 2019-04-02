@@ -18,7 +18,10 @@ router.post("/", (req, res) => {
     author: req.body.author,
     image: req.body.image,
     ingredients: req.body.ingredients, 
-    directions: req.body.directions
+    directions: req.body.directions,
+    calories_per_serving : req.body.calories_per_serving,
+    full_cook_time: req.body.full_cook_time,
+    total_servings: req.body.total_servings
   });
   
   recipe.save().then(item => res.json(item));

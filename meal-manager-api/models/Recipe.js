@@ -21,6 +21,18 @@ const schema = new mongoose.Schema({
       type: [String],
       required: true 
     },
+    calories_per_serving:{
+      type: String,
+      required: true,
+    },
+    full_cook_time:{
+      type: String,
+      required: true,
+    },
+    total_servings:{
+      type: String,
+      required: true,
+    }
 
 });
 

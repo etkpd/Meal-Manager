@@ -33,7 +33,7 @@ class RecipeContainer extends React.Component {
         <div className={styles.item2}>
           {(this.props.recipes.length )?  <CardList recipes={this.props.recipes}></CardList>  : console.log('no')}
         </div>
-
+        {console.log(this.props.recipes)}
         {/* <div className={styles.item3}><p>3</p></div>
         <div className={styles.item4}><p>4</p></div>
         <div className={styles.item5}><p>5</p></div>
