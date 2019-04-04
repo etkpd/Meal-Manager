@@ -13,7 +13,7 @@ const Card = ({ author, title, image, directions, ingredients, calories_per_serv
       <div>
 
         
-        <img src={meal_picture} alt="Italian Trulli" height="150" width="250"></img>
+        <img src={meal_picture} alt="Italian Trulli"></img>
         
         
         <h4>{title}</h4>

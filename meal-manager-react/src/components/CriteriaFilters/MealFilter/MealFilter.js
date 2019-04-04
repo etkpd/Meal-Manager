@@ -5,14 +5,83 @@ class MealFilter extends Component {
   render() {
     return (
       <div className={styles.mealfiltercontainer}>
-        <button><h4>Meal</h4></button>
-        <input type="checkbox"></input><label>BreakFast</label>
-        <input type="checkbox"></input><label>Lunch</label>
-        <input type="checkbox"></input><label>Dinner</label>
-        <input type="checkbox"></input><label>Dessert</label>
-        <button><h4>Ingredient (Meat)</h4></button>
-        <button><h4>Ingredient (Vegetable)</h4></button>
-        <button><h4>Ingredient (Grain)</h4></button>
+        <button><h3>Meal</h3></button>
+        <div className={styles.filterinputs}>
+          <label className={styles.filterinput}>
+            <input type="checkbox"></input>
+            <span className={styles.checkmark}></span>
+            BreakFast
+          </label>
+          <label className={styles.filterinput}>
+            <input type="checkbox"></input>
+            <span className={styles.checkmark}></span>
+            Lunch
+          </label>
+          <label className={styles.filterinput}>
+            <input type="checkbox"></input>
+            <span className={styles.checkmark}></span>
+            Dinner
+          </label>
+          <label className={styles.filterinput}>
+            <input type="checkbox"></input>
+            <span className={styles.checkmark}></span>
+            Dessert
+          </label>
+        </div>
+        <button><h3>Ingredient (Meat)</h3></button>
+          <div className={styles.filterinputs}>
+            <label className={styles.filterinput}>
+              <input type="checkbox"></input>
+              <span className={styles.checkmark}></span>
+              beef
+            </label>
+            <label className={styles.filterinput}>
+              <input type="checkbox"></input>
+              <span className={styles.checkmark}></span>
+              pork
+            </label>
+            <label className={styles.filterinput}>
+              <input type="checkbox"></input>
+              <span className={styles.checkmark}></span>
+              chicken
+            </label>   
+          </div>
+        <button><h3>Ingredient (Vegetable)</h3></button>
+          <div className={styles.filterinputs}>
+            <label className={styles.filterinput}>
+              <input type="checkbox"></input>
+              <span className={styles.checkmark}></span>
+              spinach
+            </label>         
+            <label className={styles.filterinput}>
+              <input type="checkbox"></input>
+              <span className={styles.checkmark}></span>
+              red beet
+            </label>
+            <label className={styles.filterinput}>
+              <input type="checkbox"></input>
+              <span className={styles.checkmark}></span>
+              carrot
+            </label> 
+          </div>
+        <button><h3>Ingredient (Grain)</h3></button>
+          <div className={styles.filterinputs}>
+            <label className={styles.filterinput}>
+              <input type="checkbox"></input>
+              <span className={styles.checkmark}></span>
+              oats
+            </label>
+            <label className={styles.filterinput}>
+              <input type="checkbox"></input>
+              <span className={styles.checkmark}></span>
+              brown rice
+            </label>
+            <label className={styles.filterinput}>
+              <input type="checkbox"></input>
+              <span className={styles.checkmark}></span>
+              whole grain pasta
+            </label>
+          </div>
       </div>
     );
   }
