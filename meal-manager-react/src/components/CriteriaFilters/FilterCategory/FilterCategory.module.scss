@@ -1,0 +1,17 @@
+.filtergroupcontainer{
+
+  button {
+  text-align: left;
+  position: relative;
+  border: none;
+  background: transparent;
+  color: black;
+  cursor: pointer;
+  width: 100%;
+    &::before{
+      content:"\2212";
+      position: absolute;
+      right: 5px;
+    }
+  }
+}

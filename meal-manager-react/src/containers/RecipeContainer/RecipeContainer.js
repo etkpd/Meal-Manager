@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import MealFilter from "../../components/CriteriaFilters/MealFilter/MealFilter";
 import CardList from "../../components/cards/CardList/CardList";
+import Test from "../../components/test/test"
 
 import {fetchRecipes} from "../../actions/RecipesActions"
 
@@ -28,7 +29,10 @@ class RecipeContainer extends React.Component {
     <>
       <div className={styles.containergrid}>
         <div className={styles.item1}>
-          <MealFilter></MealFilter> 
+    <MealFilter></MealFilter> 
+         
+     <Test></Test>
+ 
         </div>
         <div className={styles.item2}>
           {(this.props.recipes.length )?  <CardList recipes={this.props.recipes}></CardList>  : console.log('no')}
