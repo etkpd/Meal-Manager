@@ -25,9 +25,7 @@ class MealFilterContainer extends React.Component {
       
       <FilterCategory></FilterCategory>
       <Checkboxes></Checkboxes>
-      <FilterCategory></FilterCategory>
-      <Checkboxes></Checkboxes>
-    
+      
     </div>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Card.module.scss';
-import meal_picture from "./meal.jpg";
+import meal_picture from "./toast.jpg";
 import Checkbox from '../../CriteriaFilters/Checkboxes/Checkbox/Checkbox';
 
 const Card = ({ author, title, image, directions, ingredients, calories_per_serving, total_servings,full_cook_time }) => {
@@ -13,7 +13,7 @@ const Card = ({ author, title, image, directions, ingredients, calories_per_serv
       <div>
 
         
-        <img src={meal_picture} alt="Italian Trulli"></img>
+        <img src={`${meal_picture}`} alt="Italian Trulli"></img>
         
         
         <h4>{title}</h4>

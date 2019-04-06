@@ -18,6 +18,7 @@ class Checkboxes extends React.Component {
   handleChange(e) {
     const item = e.target.name;
     const isChecked = e.target.checked;
+    console.log(e.target.checked);
     this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
   }
   
