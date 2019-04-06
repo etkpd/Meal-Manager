@@ -1,4 +1,4 @@
-const checkboxes = [
+const checkboxes_sample = [
   {
     name: 'check-box-1',
     key: 'checkBox1',
@@ -19,6 +19,11 @@ const checkboxes = [
     key: 'checkBox4',
     label: 'Check Box 4',
   },
+  {
+    name: 'check-box-44',
+    key: 'checkBox44',
+    label: 'Check Box 44',
+  },
 ];
 
-export default checkboxes-sample;
+export default checkboxes_sample;

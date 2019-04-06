@@ -1,0 +1,36 @@
+.checkboxContainer{
+  label{
+    display:block;
+    font-size: 12px;
+    padding-left: 20px;
+  }
+  .filterinput{
+    position: relative;
+    margin: 0px 0px 9px 0px;
+    align-content: center;
+    cursor: pointer;
+
+    input{
+      position: absolute;
+      border: 0;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      white-space: nowrap;
+      width: 1px;
+    }
+  
+    .checkmark{
+      position: absolute;
+      top: 0;
+      left: 0px;
+      height: 18px;
+      width: 18px;
+      border: solid;
+      border-width: thin;
+    } 
+  }
+}

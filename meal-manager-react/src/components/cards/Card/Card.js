@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Card.module.scss';
 import meal_picture from "./meal.jpg";
-
+import Checkbox from '../../CriteriaFilters/Checkboxes/Checkbox/Checkbox';
 
 const Card = ({ author, title, image, directions, ingredients, calories_per_serving, total_servings,full_cook_time }) => {
   return (
@@ -20,6 +20,12 @@ const Card = ({ author, title, image, directions, ingredients, calories_per_serv
         <p>{calories_per_serving}</p>
         <p>{total_servings}</p>
         <p>{full_cook_time}</p>
+
+        <Checkbox 
+                name={'testing'} 
+                checked={true} 
+                onChange={null} 
+        />
 
 {/* 
         <h5>Ingredients</h5>

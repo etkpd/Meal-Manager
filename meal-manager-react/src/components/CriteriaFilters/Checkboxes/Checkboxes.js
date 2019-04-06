@@ -1,10 +1,10 @@
 import React from 'react';
-import checkboxes from './checkboxes-sample';
 import Checkbox from './Checkbox/Checkbox';
-import styles from './Checkboxes.module.scss'
+import styles from './Checkboxes.module.scss';
+import checkboxes_sample from './checkboxes_sample';
 
 
-class Checkbox extends React.Component {
+class Checkboxes extends React.Component {
   constructor(props) {
     super(props);
 
@@ -20,21 +20,23 @@ class Checkbox extends React.Component {
     const isChecked = e.target.checked;
     this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
   }
-
+  
   render() {
     return (
-      <>
+      <div className={styles.filterinputs} >
         {
-          checkboxes.map(item => (
-            <label key={item.key}>
-              {item.name}
-              <Checkbox name={item.name} checked={this.state.checkedItems.get(item.name)} onChange={this.handleChange} />
-            </label>
+          checkboxes_sample.map(item => (
+            <Checkbox 
+              key={item.key}
+              name={item.name} 
+              checked={this.state.checkedItems.get(item.name)} 
+              onChange={this.handleChange} 
+            />
           ))
         }
-      </>
+      </div>
     );
   }
 }
 
-export default Checkbox;
+export default Checkboxes;
