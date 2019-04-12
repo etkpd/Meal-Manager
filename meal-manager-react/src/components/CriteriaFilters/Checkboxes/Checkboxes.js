@@ -1,7 +1,6 @@
 import React from 'react';
 import Checkbox from './Checkbox/Checkbox';
 import styles from './Checkboxes.module.scss';
-import checkboxes_sample from './checkboxes_sample';
 
 
 class Checkboxes extends React.Component {
@@ -17,12 +16,15 @@ class Checkboxes extends React.Component {
 
   handleChange(e) {
     const item = e.target.name;
+    //console.log(item);
     const isChecked = e.target.checked;
-    console.log(e.target.checked);
+    //console.log(this.state.checkedItems);
     this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
   }
   
   render() {
+    const {checkboxes_sample, ifClicked} = this.props;
+
     return (
       <div className={styles.filterinputs} >
         {
@@ -32,6 +34,7 @@ class Checkboxes extends React.Component {
               name={item.name} 
               checked={this.state.checkedItems.get(item.name)} 
               onChange={this.handleChange} 
+              ifClicked={ifClicked}
             />
           ))
         }

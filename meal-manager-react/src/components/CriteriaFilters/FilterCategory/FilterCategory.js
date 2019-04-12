@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './FilterCategory.module.scss'
 
-const FilterCategory = () => {
+const FilterCategory = ({title}) => {
   return (
     <div className={styles.filtergroupcontainer}>
-      <button><h3>this.props.title</h3></button>
+      <button><h3>{title}</h3></button>
     </div>
   );
 };

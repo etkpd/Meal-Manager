@@ -11,6 +11,9 @@ const TopNagivation = () => {
         <ul className={styles.nav}>
           <li className={styles.nav__item}>
             <Link to="/" className={styles.nav__link}>Home</Link>
+ 
+            {/* <Link to={{pathname: router.location.pathname}}  className={styles.nav__link}>Home</Link> */}
+
           </li>
           <li className={styles.nav__item}>
             <Link to="/mealschedule" className={styles.nav__link}>Meal Schedule</Link>

@@ -1,13 +1,13 @@
 import React from "react";
 import {connect} from "react-redux";
-import MealFilter from "../../components/CriteriaFilters/MealFilter/MealFilter";
-import CardList from "../../components/cards/CardList/CardList";
-import Test from "../../components/test/test"
+import { Route } from "react-router-dom"
+
+import RecipeCardsContainer from '../RecipeCardsContainer/RecipeCardsContainer';
 import MealFilterContainer from '../MealFilterContainer/MealFilterContainer';
 
 import {fetchRecipes} from "../../actions/RecipesActions"
 
-import styles from './RecipeContainer.module.scss';
+import styles from './RecipesPageContainer.module.scss';
 
 
 class RecipeContainer extends React.Component {
@@ -21,8 +21,9 @@ class RecipeContainer extends React.Component {
   }
 
   componentWillReceiveProps(){
-    console.log("recipes will be recieved")
+    //console.log("recipes will be recieved")
   }
+
 
 
   render() {
@@ -30,18 +31,35 @@ class RecipeContainer extends React.Component {
     <>
       <div className={styles.containergrid}>
         <div className={styles.item1}>
-    <MealFilter></MealFilter> 
-         
-     <Test></Test>
- 
- <MealFilterContainer></MealFilterContainer>
-
-
+          <MealFilterContainer></MealFilterContainer>
         </div>
         <div className={styles.item2}>
-          {(this.props.recipes.length )?  <CardList recipes={this.props.recipes}></CardList>  : console.log('no')}
+         <Route
+          path="/recipes"
+          render={() => 
+            <RecipeCardsContainer 
+              recipes={this.props.recipes}
+              history={this.props.history}
+              match={this.props.match}
+              location={this.props.location} 
+            />
+          }
+        />
+           
+        {/*   {(this.props.recipes.length )
+            ? <RecipeCardsContainer 
+                recipes={this.props.recipes}
+                history={this.props.history}
+                match={this.props.match}
+                location={this.props.location}
+              />  
+            : 'No Recipes yet. Wait one second.'
+          } */}
         </div>
-        {console.log(this.props.recipes)}
+
+  {/*       {console.log(this.props.recipes)}
+ */}
+
         {/* <div className={styles.item3}><p>3</p></div>
         <div className={styles.item4}><p>4</p></div>
         <div className={styles.item5}><p>5</p></div>
