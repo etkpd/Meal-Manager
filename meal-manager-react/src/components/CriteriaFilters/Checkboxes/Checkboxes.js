@@ -10,6 +10,7 @@ class Checkboxes extends React.Component {
 
     this.state = {
       checkedItems: new Map(),
+      hiddenCategory: false
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,8 +33,17 @@ class Checkboxes extends React.Component {
  */
   handleChange(e) {
     const item = e.target.name;
+    console.log(e.target)
     const isChecked = e.target.checked;
 
+ /*    if (isChecked) {
+        this.props.history.push({
+          pathname: this.props.match.path,
+          search: '?color=blue' `?`
+        }) 
+    
+
+    } */
    /*  
     this.props.history.push({
       pathname: this.props.match.path,
@@ -44,25 +54,40 @@ class Checkboxes extends React.Component {
     //console.log(this.state.checkedItems);
     this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
   }
+
+  toggleState = () =>{
+    this.setState({
+      hiddenCategory: !this.state.hiddenCategory
+    });
+    console.log(this.state.hiddenCategory)
+  }
   
   render() {
-    const {checkboxes_sample, ifClicked} = this.props;
+    const {foods, ifClicked, title} = this.props;
 
     return (
+      <>
+      <div className={styles.filtergroupcontainer}>
+      <button onClick={this.toggleState} className={(this.state.hiddenCategory)? styles.filtergroup_expanded :{}}><h3>{title}</h3></button>
+      </div>
+
       <div className={styles.filterinputs} >
         {
-          checkboxes_sample.map(item => (
+          foods.map(food => (
             <Checkbox 
-              key={item}
-              name={item} 
-              checked={this.state.checkedItems.get(item)} 
+              key={food}
+              name={food} 
+              checked={this.state.checkedItems.get(food)} 
               onChange={this.handleChange} 
               ifClicked={ifClicked}
+              hidden={this.state.hiddenCategory}
             />  
 
           ))
         }
       </div>
+
+      </>
     );
   }
 }

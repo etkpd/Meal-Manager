@@ -44,12 +44,10 @@ class MealFilterContainer extends React.Component {
         ? <h1>Loading</h1>
         : filters.map(filter => (
             <>
-            <FilterCategory
-              title={filter.group_title}
-            />
             <Checkboxes
+              title={filter.group_title}              
               className={styles.mealfitler_checkbox}
-              checkboxes_sample={filter.foods}
+              foods={filter.foods}
               ifClicked={this.props.ifClicked}
               history={this.props.history}
               match={this.props.match}
