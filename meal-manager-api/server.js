@@ -5,7 +5,9 @@ var cors = require('cors')
 require('dotenv').config();
 
 const port = process.env.PORT || 5000;
-const api = require('./routes/api/recipe')
+const recipe = require('./routes/api/recipe')
+const food = require('./routes/api/food')
+
 
 const app = express();
 
@@ -16,7 +18,8 @@ app.use(cors());
 app.use(express.json());
 
 // API routes
-app.use('/api/recipe', api);
+app.use('/api/recipe', recipe);
+app.use('/api/food', food);
 
 
 app.listen(port, () => {

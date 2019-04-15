@@ -5,6 +5,7 @@ const Recipe = require('../../models/Recipe');
 
 const router = express.Router();
 
+/* 
 router.get("/", (req, res) => {
   const id = req.query.vegetable
   var regularexpression = new RegExp(`${id}`, 'i');
@@ -15,7 +16,8 @@ router.get("/", (req, res) => {
   console.log('query using ? ', id);
 
 
-});
+}); 
+*/
 
 
 //example: extract parameter from url

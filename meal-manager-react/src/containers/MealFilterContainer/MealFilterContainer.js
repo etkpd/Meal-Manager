@@ -4,6 +4,9 @@ import FilterCategory from '../../components/CriteriaFilters/FilterCategory/Filt
 import Checkboxes from '../../components/CriteriaFilters/Checkboxes/Checkboxes';
 import checkboxes_sample from './checkboxes_sample';
 
+import {connect} from "react-redux";
+import {fetchFilters} from "../../actions/FiltersActions"
+
 
 //import { Redirect } from 'react-router-dom';
  
@@ -17,46 +20,60 @@ class MealFilterContainer extends React.Component {
   state = {
     clicked: false
   };
-/* 
+
   componentDidMount() {
-  
+    console.log('mounted')
+     if (this.props.filters.length < 1 ){
+      this.props.fetchThoseFilters() 
+    }
   }
 
+/* 
   componentWillReceiveProps(){
   }
  */
 
 
   render() {
- 
+    const {filters} = this.props;
 
     return (
     <div className={styles.mealfiltercontainer}>
-      
-      <FilterCategory
-        title="Ingredient (Meat)"
-      />
-      <Checkboxes
-        checkboxes_sample={checkboxes_sample}
-        ifClicked={this.props.ifClicked}
-      />
-     
-      
+
+      {(this.props.filters.length < 1)
+        ? <h1>Loading</h1>
+        : filters.map(filter => (
+            <>
+            <FilterCategory
+              title={filter.group_title}
+            />
+            <Checkboxes
+              className={styles.mealfitler_checkbox}
+              checkboxes_sample={filter.foods}
+              ifClicked={this.props.ifClicked}
+              history={this.props.history}
+              match={this.props.match}
+            />
+            </>
+          )) 
+      }
     </div>
     );
   }
 }
 
-/* function mapStateToProps(state) {
+function mapStateToProps(state) {
   return {
+    filters: state.requestFilters.filters
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    fetchThoseFilters : () => dispatch(fetchFilters())
   }
 }
- */
 
 
-export default MealFilterContainer;
+
+export default connect(mapStateToProps, mapDispatchToProps)(MealFilterContainer);

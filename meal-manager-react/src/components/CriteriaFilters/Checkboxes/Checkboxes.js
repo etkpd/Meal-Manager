@@ -1,6 +1,7 @@
 import React from 'react';
 import Checkbox from './Checkbox/Checkbox';
 import styles from './Checkboxes.module.scss';
+//import queryString from 'query-string';
 
 
 class Checkboxes extends React.Component {
@@ -14,10 +15,32 @@ class Checkboxes extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+
+/* 
+  updateQueryred = () =>{
+    const striing = queryString.stringify({grain: ['rice'], meat: ['chicken'], vegetable: ['spinach', 'brussel sprouts']});
+    console.log(striing);
+
+    this.props.history.push({
+      pathname: this.props.match.path,
+      search: striing
+    }) 
+
+    const anobject=queryString.parse(striing);
+    console.log(anobject);
+  }
+ */
   handleChange(e) {
     const item = e.target.name;
-    //console.log(item);
     const isChecked = e.target.checked;
+
+   /*  
+    this.props.history.push({
+      pathname: this.props.match.path,
+      search: striing
+    }) 
+ */
+
     //console.log(this.state.checkedItems);
     this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
   }
@@ -30,12 +53,13 @@ class Checkboxes extends React.Component {
         {
           checkboxes_sample.map(item => (
             <Checkbox 
-              key={item.key}
-              name={item.name} 
-              checked={this.state.checkedItems.get(item.name)} 
+              key={item}
+              name={item} 
+              checked={this.state.checkedItems.get(item)} 
               onChange={this.handleChange} 
               ifClicked={ifClicked}
-            />
+            />  
+
           ))
         }
       </div>
