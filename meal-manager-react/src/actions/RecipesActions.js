@@ -8,6 +8,6 @@ const recipesFetched = data => ({
 
 export const fetchRecipes = () => dispatch =>
   api.recipes
-    .fetchAll().then(recipes => {
+    .fetchRecipesFromDb().then(recipes => {
       dispatch(recipesFetched(recipes));
     });

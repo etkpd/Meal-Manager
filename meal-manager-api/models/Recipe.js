@@ -15,7 +15,7 @@ const schema = new mongoose.Schema({
     },
     ingredients: { 
       type: [String],
-      required: true 
+      required: true
     },
     directions: { 
       type: [String],
@@ -32,8 +32,13 @@ const schema = new mongoose.Schema({
     total_servings:{
       type: String,
       required: true,
+    },
+    ingredient_ids:{
+      type: [Number],
+      required: true,
     }
-
 });
+
+schema.index({ ingredients: 'text' });
 
 module.exports = mongoose.model("Recipe", schema);

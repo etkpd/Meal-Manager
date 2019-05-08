@@ -1,23 +1,39 @@
 const express = require('express');
+const queryString = require('query-string');
 
 // Recipe Model
 const Recipe = require('../../models/Recipe');
 
 const router = express.Router();
 
-/* 
+ 
 router.get("/", (req, res) => {
-  const id = req.query.vegetable
-  var regularexpression = new RegExp(`${id}`, 'i');
+  let recipe_query =  req.query.recipe
+  let array_of_recipes
 
+  if (typeof recipe_query === 'string'){
+    array_of_recipes = [recipe_query];
+  }else{
+    array_of_recipes = recipe_query;
+  }
+
+  console.log(array_of_recipes)
+
+  //let id = array_of_recipes_2.join(' ')
+  let id = "\\\"whole wheat bread\"\\";
   
-  Recipe.find({ ingredients: regularexpression}, 'title').then(theanswer => res.json(theanswer));
+
+  const pageNumber = 1;// retrieve exact number from url query
+  const nPerPage = 12; 
+
+  Recipe.find({ $text: { $search: `${id}`}}).skip((pageNumber-1)*nPerPage).limit(12).then(recipes => res.json({ recipes })); 
   
-  console.log('query using ? ', id);
+  console.log('query using ? ',id);
 
-
+  //look up _id for each individual ingredient from food database
+  //Use _id to search Recipe({[ingredient_ids]}) for any matches. 
 }); 
-*/
+
 
 
 //example: extract parameter from url
@@ -44,8 +60,10 @@ router.get("/findthatterm", (req, res) => {
 
 router.get("/", (req, res) => {
   console.log('get requested');
-
-  Recipe.find({}).then(recipes => res.json({ recipes }));
+  const pageNumber = 1;
+  const nPerPage = 12; 
+  Recipe.find().skip((pageNumber-1)*nPerPage).limit(12).then(recipes => res.json({ recipes }));
+  //future work: only send json object containing calories, servings, cook time, and image.
 });
 
 router.post("/", (req, res) => {

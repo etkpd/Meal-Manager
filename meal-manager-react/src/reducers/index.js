@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import  requestRecipes from './recipes/recipes';
-import  requestFilters from './filters/filters';
+import  RecipesReducer from './recipes/recipes';
+import  FiltersReducer from './filters/filters';
 
 export default combineReducers({
-  requestRecipes,
-  requestFilters
+  recipes: RecipesReducer,
+  filters: FiltersReducer
 });

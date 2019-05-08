@@ -1,8 +1,5 @@
 import React from "react";
 //import {connect} from "react-redux";
-import FilterCategory from '../../components/CriteriaFilters/FilterCategory/FilterCategory';
-import Checkboxes from '../../components/CriteriaFilters/Checkboxes/Checkboxes';
-import checkboxes_sample from './checkboxes_sample';
 
 import {connect} from "react-redux";
 import {fetchFilters} from "../../actions/FiltersActions"
@@ -14,17 +11,23 @@ import {fetchFilters} from "../../actions/FiltersActions"
 
 
 import styles from './MealFilterContainer.module.scss';
+import FilterGroup from "../../components/CriteriaFilters/Filter Group/FilterGroup";
 
 
 class MealFilterContainer extends React.Component {
-  state = {
-    clicked: false
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      hiddenCategory: false,
+    }
+  }
+
 
   componentDidMount() {
-    console.log('mounted')
+    console.log('MealFilterContainer mounted')
      if (this.props.filters.length < 1 ){
-      this.props.fetchThoseFilters() 
+      this.props.fetchFilters() 
     }
   }
 
@@ -44,11 +47,8 @@ class MealFilterContainer extends React.Component {
         ? <h1>Loading</h1>
         : filters.map(filter => (
             <>
-            <Checkboxes
-              title={filter.group_title}              
-              className={styles.mealfitler_checkbox}
-              foods={filter.foods}
-              ifClicked={this.props.ifClicked}
+            <FilterGroup
+              filter={filter}
               history={this.props.history}
               match={this.props.match}
             />
@@ -62,16 +62,14 @@ class MealFilterContainer extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    filters: state.requestFilters.filters
+    filters: state.filters.filters
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchThoseFilters : () => dispatch(fetchFilters())
+    fetchFilters : () => dispatch(fetchFilters())
   }
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(MealFilterContainer);

@@ -8,6 +8,6 @@ const filtersFetched = data => ({
 
 export const fetchFilters = () => dispatch =>
   api.filters
-    .fetchAll().then(filters => {
+    .fetchAllFilters().then(filters => {
       dispatch(filtersFetched(filters));
     });

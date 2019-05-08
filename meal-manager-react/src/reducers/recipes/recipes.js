@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   recipes: []
 }
 
-export default function requestRecipes(state = INITIAL_STATE, action = {}) {
+export default function(state = INITIAL_STATE, action = {}) {
   switch (action.type) {
     case FETCH_RECIPES_SUCCESS:
       return { ...state, recipes: action.data};

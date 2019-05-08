@@ -15,7 +15,7 @@ class RecipeCardsContainer extends React.Component {
   }
   componentDidUpdate(){
    // this.setState({ initial_mount: false })
-    //console.log('update')
+    console.log('RecipeCardsContainer updated')
 
   }
 
@@ -45,7 +45,7 @@ class RecipeCardsContainer extends React.Component {
   }
 
   updateQueryred = () =>{
-    const striing = queryString.stringify({grain: ['rice'], meat: ['chicken'], vegetable: ['spinach', 'brussel sprouts']});
+    const striing = queryString.stringify({grain: ['rice','pasta', 'bread'], meat: ['chicken'], vegetable: ['spinach', 'brussel sprouts']});
     console.log(striing);
 
     this.props.history.push({
@@ -55,6 +55,8 @@ class RecipeCardsContainer extends React.Component {
 
     const anobject=queryString.parse(striing);
     console.log(anobject);
+    const dissectanobject = anobject.grain
+    console.log(dissectanobject); 
   }
 
   render() {
@@ -66,8 +68,7 @@ class RecipeCardsContainer extends React.Component {
       <button onClick={this.updateQueryblue}>?color=blue </button>
       <button onClick={this.updateQueryorange}>?color=orange </button>
       <button onClick={this.updateQueryred}>?color=red</button>
-      
-      {console.log(this.props)}
+    
 
       <CardList 
         recipes={this.props.recipes}

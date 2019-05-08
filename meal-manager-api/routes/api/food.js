@@ -15,10 +15,28 @@ router.get("/filters", (req, res) => {
 
 
 router.post("/", (req, res) => {
-  console.log('post was run');
+  console.log('posting food');
   var foods = new Food({
     group_title: req.body.group_title,
-    foods: req.body.foods,
+    food_name: req.body.food_name,
+    calories: req.body.calories,
+    serving_size_grams:req.body.serving_size_grams,
+    total_fat:req.body.total_fat,
+    saturated_fat:req.body.saturated_fat,
+    trans_fat:req.body.trans_fat,
+    polyunsaturated_fat:req.body.polyunsaturated_fat,
+    monounsaturated_fat:req.body.monounsaturated_fat,
+    cholesterol:req.body.cholesterol,
+    sodium:req.body.sodium,
+    potassium:req.body.potassium,
+    total_carbohydrates:req.body.total_carbohydrates,
+    dietary_fiber:req.body.dietary_fiber,
+    sugars:req.body.sugars,
+    protein:req.body.protein,
+    vitamin_a:req.body.vitamin_a,
+    vitamin_c:req.body.vitamin_c,
+    calcium:req.body.calcium,
+    iron:req.body.iron
   });
   
   foods

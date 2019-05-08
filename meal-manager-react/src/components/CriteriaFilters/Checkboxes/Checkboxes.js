@@ -3,47 +3,30 @@ import Checkbox from './Checkbox/Checkbox';
 import styles from './Checkboxes.module.scss';
 //import queryString from 'query-string';
 
-
 class Checkboxes extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       checkedItems: new Map(),
-      hiddenCategory: false
+      hiddenCategory: false,
+      itemsChecked: []
     }
 
     this.handleChange = this.handleChange.bind(this);
   }
 
-
-/* 
-  updateQueryred = () =>{
-    const striing = queryString.stringify({grain: ['rice'], meat: ['chicken'], vegetable: ['spinach', 'brussel sprouts']});
-    console.log(striing);
-
-    this.props.history.push({
-      pathname: this.props.match.path,
-      search: striing
-    }) 
-
-    const anobject=queryString.parse(striing);
-    console.log(anobject);
+  componentDidUpdate(){
+    //decode url. extract items from relevant food category
+    //update this.state.checkedItems to reflect newly updated url
   }
- */
+
   handleChange(e) {
+    console.log(e.target);
+   // const category = this.props.title
     const item = e.target.name;
-    console.log(e.target)
     const isChecked = e.target.checked;
 
- /*    if (isChecked) {
-        this.props.history.push({
-          pathname: this.props.match.path,
-          search: '?color=blue' `?`
-        }) 
-    
-
-    } */
    /*  
     this.props.history.push({
       pathname: this.props.match.path,
@@ -53,24 +36,32 @@ class Checkboxes extends React.Component {
 
     //console.log(this.state.checkedItems);
     this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
-  }
 
-  toggleState = () =>{
-    this.setState({
-      hiddenCategory: !this.state.hiddenCategory
-    });
-    console.log(this.state.hiddenCategory)
+    // add to object of arrays (push() or filter())
+    if (isChecked) {
+    
+      /* this.setState(itemsChecked: {...this.state.checkedItems, ...carObject} ) */
+    }
+    else {
+
+    }
+
+    // use queryString.stringify on object of arrays to create a search string for history.push method
+
+
+    this.props.history.push({
+      pathname: this.props.match.path,
+      search: `?meat=${item}`
+    }) 
+  
+    console.log(this.state.checkedItems)
   }
   
   render() {
-    const {foods, ifClicked, title} = this.props;
+    const {foods, hiddenCategory} = this.props;
 
     return (
       <>
-      <div className={styles.filtergroupcontainer}>
-      <button onClick={this.toggleState} className={(this.state.hiddenCategory)? styles.filtergroup_expanded :{}}><h3>{title}</h3></button>
-      </div>
-
       <div className={styles.filterinputs} >
         {
           foods.map(food => (
@@ -79,14 +70,11 @@ class Checkboxes extends React.Component {
               name={food} 
               checked={this.state.checkedItems.get(food)} 
               onChange={this.handleChange} 
-              ifClicked={ifClicked}
-              hidden={this.state.hiddenCategory}
+              hidden={hiddenCategory}
             />  
-
           ))
         }
       </div>
-
       </>
     );
   }

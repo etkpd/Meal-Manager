@@ -12,56 +12,15 @@ import TopNagivation from "./components/navigation/TopNagivation";
 
 const App = () => (
   <>
-
     <TopNagivation/>  
-    <Route  
-      path="/" 
-      exact component={HomePage} 
-    />
-    <Route
-      path="/mealschedule"
-      exact
-      component={MealSchedulePage}
-    />
-    <Route
-      path="/catalog"
-      exact
-      component={CatalogPage}
-    />
-    <Route
-      path="/pricelogger"
-      exact
-      component={PriceLoggerPage}
-    />
-    <Route
-      path="/recipes"
-      component={RecipesPage}
-       
-      
-      /* path="/recipes"
-      render={(props) => {
-        return <RecipesPage {...props} />;
-      }} */
-      
-      />
-    <Route 
-      path="/login" 
-      exact component={LoginPage} 
-      />
-    <Route
-      path="/signup"
-      exact
-      component={SignupPage}
-      />
-    <Route
-      path="/forgot_password"
-      exact
-      component={ForgotPasswordPage}
-      />
-  
-
-      
-
+    <Route path="/" exact component={HomePage} />
+    <Route path="/mealschedule" exact component={MealSchedulePage}/>
+    <Route path="/catalog" exact component={CatalogPage}/>
+    <Route path="/pricelogger" exact component={PriceLoggerPage}/>
+    <Route path="/recipes" component={RecipesPage}/>
+    <Route path="/login"  exact component={LoginPage}  />
+    <Route path="/signup" exact component={SignupPage} />
+    <Route path="/forgot_password" exact component={ForgotPasswordPage} />
   </>
 ); 
 

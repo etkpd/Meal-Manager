@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   filters: []
 }
 
-export default function requestFilters(state = INITIAL_STATE, action = {}) {
+export default function(state = INITIAL_STATE, action = {}) {
   switch (action.type) {
     case FETCH_FILTERS_SUCCESS:
       return { ...state, filters: action.data};
