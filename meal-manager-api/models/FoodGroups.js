@@ -1,11 +1,26 @@
 const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema({
-  group: {
+  group_title: {
     type: String,
     required: true
   },
-  foods: [{title: String, id: Number}]
+  foodsRefList:[
+    {
+      foodID:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Food'
+      },
+      food_name: {
+        type: String,
+        required: true
+      }
+    }
+  ]
 });
+
+schema.methods.addFoodToFoodGroup = function addFoodToFoodGroup(foodID, food_name){
+  this.foodsRefList.push({foodID, food_name});
+}
 
 module.exports = mongoose.model("FoodGroups", schema);

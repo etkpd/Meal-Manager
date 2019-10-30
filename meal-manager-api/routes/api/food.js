@@ -3,6 +3,7 @@ const queryString = require('query-string');
 
 // Recipe Model
 const Food = require('../../models/Food');
+const FoodGroups = require('../../models/FoodGroups');
 
 const router = express.Router();
 
@@ -13,10 +14,12 @@ router.get("/filters", (req, res) => {
   Food.find({}).then(filters => res.json({ filters }));
 });
 
-
+// @route    Post api/parts/food
+// @desc     Create database entry for food item, then add reference to newly created item in foodgroups collection
+// @access   Private
 router.post("/", (req, res) => {
   console.log('posting food');
-  var foods = new Food({
+  const food = new Food({
     group_title: req.body.group_title,
     food_name: req.body.food_name,
     calories: req.body.calories,
@@ -39,11 +42,19 @@ router.post("/", (req, res) => {
     iron:req.body.iron
   });
   
-  foods
+  food
     .save()
     .then(item => {
-      res.json(item);
-      console.log("foods were saved")
+      const {_id, food_name, group_title} = item;
+
+      FoodGroups.findOne({group_title})
+        .then(foodgroup => {
+          foodgroup.addFoodToFoodGroup(_id, food_name);
+          foodgroup.save()
+          console.log("foods were saved");
+          return res.json(foodgroup);
+        }
+      )
     }) 
     .catch(err => {
       console.log(err);
@@ -52,6 +63,5 @@ router.post("/", (req, res) => {
       });
     });
 });
-
 
 module.exports = router;

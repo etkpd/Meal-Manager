@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 
 import RecipeCardsContainer from '../RecipeCardsContainer/RecipeCardsContainer';
+// eslint-disable-next-line
 import MealFilterContainer from '../MealFilterContainer/MealFilterContainer';
 import HorizontalPaginator from '../../components/pagination/HorizontalPaginator/HorizontalPaginator';
 
@@ -32,10 +33,10 @@ class RecipeContainer extends React.Component {
     <>
       <div className={styles.containergrid}>
         <div className={styles.item1}>
-          <MealFilterContainer
+         {/*  <MealFilterContainer
             history={this.props.history}
             match={this.props.match}
-          />
+          /> */}
         </div>
         <div className={styles.item2}>
         {

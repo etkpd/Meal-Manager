@@ -13,7 +13,7 @@ const foodgroups = require('./routes/api/foodgroups')
 const app = express();
 
 // Set up Mongoose
-mongoose.connect("mongodb://localhost:27017/meal_manager");
+mongoose.connect("mongodb://localhost:27017/meal_manager", { useNewUrlParser: true , useCreateIndex: true});
 
 app.use(cors());
 app.use(express.json());
@@ -21,7 +21,7 @@ app.use(express.json());
 // API routes
 app.use('/api/recipe', recipe);
 app.use('/api/food', food);
-app.use('/api/foodgroups', food);
+app.use('/api/foodgroups', foodgroups);
 
 
 app.listen(port, () => {

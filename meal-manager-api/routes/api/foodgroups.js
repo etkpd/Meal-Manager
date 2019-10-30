@@ -12,13 +12,43 @@ router.get("/filters", (req, res) => {
   FoodGroups.find({}).then(filters => res.json({ filters }));
 });
 
+router.post("/", async (req, res) => {
+  const foodGroup = await FoodGroups.findOne({group_title: 'dessert'}); 
+  console.log(foodGroup)
+  await foodGroup.addFoodToFoodGroup('abaf');
+  await foodGroup.save();
+  res.json(foodGroup);
+}); 
 
-router.post("/", (req, res) => {
+ /* router.post("/", (req, res) => {
+  console.log('post was run');
+  var foods = new FoodGroups({
+    group_title: 'vegetable'
+  });
+  
+  foods
+    .save()
+    .then(item => {
+      res.json(item);
+      console.log("foods were saved")
+    }) 
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+});  */
+
+
+
+
+
+/* router.post("/", (req, res) => {
   console.log('post was run');
   var foods = new FoodGroups({
     group_title: req.body.group_title,
     foods: {
-      title: req.body.food,
       id: req.body.id
     }
   });
@@ -36,6 +66,6 @@ router.post("/", (req, res) => {
       });
     });
 });
-
+ */
 
 module.exports = router;

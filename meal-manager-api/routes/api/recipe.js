@@ -6,7 +6,16 @@ const Recipe = require('../../models/Recipe');
 
 const router = express.Router();
 
+
+router.get("/", (req, res) => {
+  console.log('get requested');
+  const pageNumber = 1;
+  const nPerPage = 16; 
+  Recipe.find().skip((pageNumber-1)*nPerPage).limit(16).then(recipes => res.json({ recipes }));
+  //future work: only send json object containing calories, servings, cook time, and image.
+});
  
+/* 
 router.get("/", (req, res) => {
   let recipe_query =  req.query.recipe
   let array_of_recipes
@@ -32,9 +41,8 @@ router.get("/", (req, res) => {
 
   //look up _id for each individual ingredient from food database
   //Use _id to search Recipe({[ingredient_ids]}) for any matches. 
-}); 
-
-
+});  
+*/
 
 //example: extract parameter from url
 router.get("/query::productId", (req, res) => {
@@ -54,17 +62,10 @@ router.get("/query::productId", (req, res) => {
 router.get("/findthatterm", (req, res) => {
   
   Recipe.find({ ingredients: /2% milk/i}, 'title').then(theanswer => res.json(theanswer));
-  
-  
+
+
 });
 
-router.get("/", (req, res) => {
-  console.log('get requested');
-  const pageNumber = 1;
-  const nPerPage = 12; 
-  Recipe.find().skip((pageNumber-1)*nPerPage).limit(12).then(recipes => res.json({ recipes }));
-  //future work: only send json object containing calories, servings, cook time, and image.
-});
 
 router.post("/", (req, res) => {
   console.log('post was run');

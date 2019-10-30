@@ -13,9 +13,12 @@ const schema = new mongoose.Schema({
       type: String, 
       required: true 
     },
-    ingredients: { 
+    ingredients_text: { 
       type: [String],
       required: true
+    },
+    ingredients: { 
+      type: [String]
     },
     directions: { 
       type: [String],
@@ -25,20 +28,20 @@ const schema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    full_cook_time:{
+    cook_time:{
+      type: String,
+      required: true,
+    },
+    prep_time:{
       type: String,
       required: true,
     },
     total_servings:{
       type: String,
       required: true,
-    },
-    ingredient_ids:{
-      type: [Number],
-      required: true,
     }
 });
 
-schema.index({ ingredients: 'text' });
+schema.index({ ingredients: 1 });
 
 module.exports = mongoose.model("Recipe", schema);
