@@ -7,14 +7,7 @@ const FoodGroups = require('../../models/FoodGroups');
 
 const router = express.Router();
 
-
-router.get("/filters", (req, res) => {
-  console.log('get requested oh');
-
-  Food.find({}).then(filters => res.json({ filters }));
-});
-
-// @route    Post api/parts/food
+// @route    Post api/food
 // @desc     Create database entry for food item, then add reference to newly created item in foodgroups collection
 // @access   Private
 router.post("/", (req, res) => {
@@ -61,6 +54,28 @@ router.post("/", (req, res) => {
       res.status(500).json({
         error: err
       });
+    });
+});
+
+
+// @route    Post api/food/filters
+// @desc     Sends filter categories and filter options for use in CriteriaFilters component
+// @access   Private
+router.get("/filters", (req, res) => {
+  console.log('get requested oh');
+  FoodGroups.find({})
+    .then((filters) => {
+      res.json({ 
+        filters: filters.map(
+          filter =>({
+          group_title: filter.group_title,
+          foods: filter.foodsRefList.map(
+            foodRef=>(foodRef.food_name)
+          )   
+          })
+        )
+      })  
+      
     });
 });
 
