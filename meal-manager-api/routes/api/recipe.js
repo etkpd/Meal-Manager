@@ -6,7 +6,9 @@ const Recipe = require('../../models/Recipe');
 
 const router = express.Router();
 
-
+// @route    Get api/recipe
+// @desc     
+// @access
 router.get("/", (req, res) => {
   console.log('get requested');
   const pageNumber = 1;
@@ -44,7 +46,55 @@ router.get("/", (req, res) => {
 });  
 */
 
-//example: extract parameter from url
+// @route    Get api/recipe/filter
+// @desc     
+// @access
+router.get("/filter", (req, res) => {
+  const query = req.query
+  const pageNumber = req.query.page ? req.query.page : 1
+  const nPerPage = 8;
+  console.log(pageNumber)
+  let andCriteriaArray = [].concat(query.AND)  
+  let notCriteriaArray = [].concat(query.NOT)
+  let orCriteriaArray = [].concat(query.OR)
+
+  console.log(andCriteriaArray, notCriteriaArray, orCriteriaArray)
+  if(andCriteriaArray.length==0 && notCriteriaArray.length>0 && orCriteriaArray.length>0){
+    Recipe.find({ $and :  [ { ingredients: { $all: orCriteriaArray } }, { ingredients: { $nin: notCriteriaArray } } ]}, null, { skip: (pageNumber-1)*nPerPage })
+    .then( recipes => {
+      res.json({recipes})
+    });
+  } else if(andCriteriaArray.length>0 && notCriteriaArray.length==0){
+    Recipe.find( { ingredients: { $all: andCriteriaArray } }, null, { skip: (pageNumber-1)*nPerPage })
+    .then( recipes => {
+      res.json({recipes})
+    });
+  } else if(andCriteriaArray.length==0 && notCriteriaArray.length>0 && orCriteriaArray.length==0){
+    Recipe.find({ ingredients: { $nin: notCriteriaArray } }, null, { skip: (pageNumber-1)*nPerPage })
+    .then( recipes => {
+      res.json({recipes})
+    });
+  } else if(andCriteriaArray.length==0 && notCriteriaArray.length==0 && orCriteriaArray.length>0){
+    Recipe.find( { ingredients: { $all: orCriteriaArray } }, null, { skip: (pageNumber-1)*nPerPage })
+    .then( recipes => {
+      res.json({recipes})
+    });
+  } else if(andCriteriaArray.length==0 && notCriteriaArray.length==0 && orCriteriaArray.length==0){
+    Recipe.find({}, null, { skip: (pageNumber-1)*nPerPage })
+    .then( recipes => {
+      res.json({recipes})
+    });
+  } else if(andCriteriaArray.length>0 && notCriteriaArray.length>0){
+    Recipe.find({ $and :  [ { ingredients: { $all: andCriteriaArray } }, { ingredients: { $nin: notCriteriaArray } } ]}, null, { skip: (pageNumber-1)*nPerPage })
+    .then( recipes => {
+      res.json({recipes})
+    });
+  }
+});
+
+// @route    Get api/recipe TEST TEST TEST
+// @desc     
+// @access
 router.get("/query::productId", (req, res) => {
   const id = req.params.productId
   
@@ -58,7 +108,9 @@ router.get("/query::productId", (req, res) => {
   
 });
 
-
+// @route    Get api/recipe/findthatterm  TEST TEST TEST
+// @desc     
+// @access
 router.get("/findthatterm", (req, res) => {
   
   Recipe.find({ ingredients: /2% milk/i}, 'title').then(theanswer => res.json(theanswer));
@@ -66,7 +118,9 @@ router.get("/findthatterm", (req, res) => {
 
 });
 
-
+// @route    Post api/recipe TEST TEST TEST
+// @desc     
+// @access   
 router.post("/", (req, res) => {
   console.log('post was run');
   var recipe = new Recipe({

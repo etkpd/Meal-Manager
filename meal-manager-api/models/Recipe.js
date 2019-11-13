@@ -33,8 +33,7 @@ const schema = new mongoose.Schema({
       required: true,
     },
     prep_time:{
-      type: String,
-      required: true,
+      type: String
     },
     total_servings:{
       type: String,

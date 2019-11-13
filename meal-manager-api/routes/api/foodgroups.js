@@ -5,13 +5,18 @@ const FoodGroups = require('../../models/FoodGroups');
 
 const router = express.Router();
 
-
+// @route    Get api/foodgroups  TEST TEST TEST
+// @desc     
+// @access
 router.get("/filters", (req, res) => {
   console.log('get requested oh');
 
   FoodGroups.find({}).then(filters => res.json({ filters }));
 });
 
+// @route    Post api/foodgroups  TEST TEST TEST
+// @desc     
+// @access
 router.post("/", async (req, res) => {
   const foodGroup = await FoodGroups.findOne({group_title: 'dessert'}); 
   console.log(foodGroup)

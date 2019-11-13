@@ -8,81 +8,67 @@ import { editRecipeCriteria } from '../../../actions/CriteriaActions'
 class Checkboxes extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      operation: new Map()
-    }
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentDidMount(){
+    //console.log(this.props.foodsCriteria)
+  }
   componentDidUpdate(){
     //decode url. extract items from relevant food category
     //update this.state.checkedItems to reflect newly updated url
   }
 
+  componentWillReceiveProps(){
+    //console.log(this.props.foodsCriteria)
+  }
+
   handleChange(e) {
-    // const category = this.props.title
+    let {foodsCriteria, foodGroup } = this.props
     const food = e.target.name;
-    //eslint-disable-next-line
     let conditional = ''
-    //OR, AND, NOT, NONE
-    //console.log(this.props.data)
-    if(!this.state.operation.get(food)){
+    if(!foodsCriteria[food]){
       conditional = 'OR'
-      this.setState(prevState => ({ operation: prevState.operation.set(food, 'OR') }));
-    } else if (this.state.operation.get(food) === 'OR'){
+    } else if (foodsCriteria[food] === 'OR'){
       conditional = 'AND'      
-      this.setState(prevState => ({ operation: prevState.operation.set(food, 'AND') }));
-    } else if (this.state.operation.get(food) === 'AND'){
+    } else if (foodsCriteria[food] === 'AND'){
       conditional = 'NOT'      
-      this.setState(prevState => ({ operation: prevState.operation.set(food, 'NOT') }));
-    } else if (this.state.operation.get(food) === 'NOT'){
+    } else if (foodsCriteria[food] === 'NOT'){
       conditional = null      
-      this.setState((prevState) => { 
-        let operationMap = prevState.operation
-        operationMap.delete(food)
-        return {operation: operationMap}
-      });
     }
 
-    let criteriaObj = Object.create(null);
-    for (let [k,v] of this.state.operation) {
-      criteriaObj[k] = v;
-    }
+    let criteriaObj = {...foodsCriteria};
     criteriaObj[food] = conditional
     if(!conditional){
       delete criteriaObj[`${food}`]
-    }
-
+    } 
     let foodgroupCriteriaObject = Object.create(null)
-    foodgroupCriteriaObject[this.props.foodGroup] = criteriaObj
-    this.props.editRecipeCriteria(foodgroupCriteriaObject)
+    foodgroupCriteriaObject[foodGroup] = criteriaObj
     this.props.onCriteriaCycle()
+    this.props.editRecipeCriteria(foodgroupCriteriaObject)
   }
   render() {
-    const {foods, hiddenCategory} = this.props;
+    const {foods, hiddenCategory, foodsCriteria} = this.props;
     return (
-      <>
       <div className={styles.filterinputs} >
         {
           foods.map(food => (
             <Checkbutton
               key={food}
               name={food} 
-              operation={this.state.operation.get(food)}
+              operation={foodsCriteria[food]}
               ifClicked={this.handleChange} 
               hidden={hiddenCategory}
-            />  
+            />
           ))
         }
       </div>
-      </>
     );
   }
 }
 
-const MapStateToProps = state =>({
-  data: state.criteria
+const MapStateToProps = (state, ownProps) =>({
+  foodsCriteria: state.criteria[ownProps.foodGroup]
 })
 
 export default connect(MapStateToProps, { editRecipeCriteria })(Checkboxes)
