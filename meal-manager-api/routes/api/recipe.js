@@ -54,11 +54,13 @@ router.get("/filter", (req, res) => {
   const pageNumber = req.query.page ? req.query.page : 1
   const nPerPage = 8;
   console.log(pageNumber)
-  let andCriteriaArray = [].concat(query.AND)  
-  let notCriteriaArray = [].concat(query.NOT)
-  let orCriteriaArray = [].concat(query.OR)
-
-  console.log(andCriteriaArray, notCriteriaArray, orCriteriaArray)
+  let stringAND = query.AND
+  let stringNOT = query.NOT
+  let stringOR = query.OR
+  let andCriteriaArray = stringAND ? stringAND.split(',') : []  
+  let notCriteriaArray = stringNOT ? stringNOT.split(',') : []
+  let orCriteriaArray = stringOR ? stringOR.split(',') : []
+  
   if(andCriteriaArray.length==0 && notCriteriaArray.length>0 && orCriteriaArray.length>0){
     Recipe.find({ $and :  [ { ingredients: { $all: orCriteriaArray } }, { ingredients: { $nin: notCriteriaArray } } ]}, null, { skip: (pageNumber-1)*nPerPage })
     .then( recipes => {
@@ -89,7 +91,7 @@ router.get("/filter", (req, res) => {
     .then( recipes => {
       res.json({recipes})
     });
-  }
+  } 
 });
 
 // @route    Get api/recipe TEST TEST TEST

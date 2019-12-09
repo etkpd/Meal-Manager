@@ -1,0 +1,19 @@
+.main{
+  position: absolute;
+  //background-color: red;
+  width: 25px;
+  height: 23px;
+  margin-left: -51px;
+  //border: 1px solid black;
+  float: left;
+  cursor: pointer;
+}
+
+.svg{
+  position: absolute;
+  margin-top: 3px;
+}
+
+.cautionSVGDisabled{
+  display:none;
+}

@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux';
-import  RecipesReducer from './recipes/recipes';
-import  FiltersReducer from './filters/filters';
-import  CriteriaReducer from './criteria/criteria'
+import CriteriaReducer from './criteria/criteria'
+import FiltersReducer from './filters/filters';
+import ModalReducer from './modal/modal';
+import RecipeReducer from './recipe/recipe';
+import RecipesReducer from './recipes/recipes';
 
 export default combineReducers({
-  recipes: RecipesReducer,
+  criteria: CriteriaReducer,
   filters: FiltersReducer,
-  criteria: CriteriaReducer
+  modal: ModalReducer,
+  recipe: RecipeReducer,
+  recipes: RecipesReducer
 });

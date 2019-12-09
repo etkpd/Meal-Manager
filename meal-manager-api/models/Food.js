@@ -10,76 +10,58 @@ const schema = new mongoose.Schema({
       required: true
     },
     calories: {
-      type: String,
-      required: true
+      type: String
     },
     serving_size_grams: {
-      type: Number,
-      required: true
+      type: Number
     },
     total_fat: {
-      type: Number,
-      required: true
+      type: Number
     },
     saturated_fat: {
-      type: Number,
-      required: true
+      type: Number
     },
     trans_fat: {
-      type: Number,
-      required: true
+      type: Number
     },
     polyunsaturated_fat: {
-      type: Number,
-      required: true
+      type: Number
     },
     monounsaturated_fat: {
-      type: Number,
-      required: true
+      type: Number
     },
     cholesterol: {
-      type: Number,
-      required: true
+      type: Number
     },
     sodium: {
-      type: Number,
-      required: true
+      type: Number
     },
     potassium: {
-      type: Number,
-      required: true
+      type: Number
     },
     total_carbohydrates: {
-      type: Number,
-      required: true
+      type: Number
     },
     dietary_fiber: {
-      type: Number,
-      required: true
+      type: Number
     },
     sugars: {
-      type: Number,
-      required: true
+      type: Number
     },
     protein: {
-      type: Number,
-      required: true
+      type: Number
     },
     vitamin_a: {
-      type: Number,
-      required: true
+      type: Number
     },
     vitamin_c: {
-      type: Number,
-      required: true
+      type: Number
     },
     calcium: {
-      type: Number,
-      required: true
+      type: Number
     },
     iron: {
-      type: Number,
-      required: true
+      type: Number
     }
 });
 

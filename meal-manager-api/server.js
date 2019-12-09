@@ -4,7 +4,7 @@ var cors = require('cors')
 
 require('dotenv').config();
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8001;
 const recipe = require('./routes/api/recipe')
 const food = require('./routes/api/food')
 const foodgroups = require('./routes/api/foodgroups')
@@ -13,7 +13,7 @@ const foodgroups = require('./routes/api/foodgroups')
 const app = express();
 
 // Set up Mongoose
-mongoose.connect("mongodb://localhost:27017/meal_manager", { useNewUrlParser: true , useCreateIndex: true});
+mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true , useCreateIndex: true});
 
 app.use(cors());
 app.use(express.json());

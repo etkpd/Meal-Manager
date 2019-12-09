@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 
-import RecipeCardsContainer from '../RecipeCardsContainer/RecipeCardsContainer';
+import RecipesCardsContainer from '../RecipesCardsContainer/RecipesCardsContainer';
 // eslint-disable-next-line
 import MealFilterContainer from '../MealFilterContainer/MealFilterContainer';
 // eslint-disable-next-line
@@ -12,7 +12,7 @@ import {fetchRecipes} from "../../actions/RecipesActions"
 import styles from './RecipesPageContainer.module.scss';
 
 
-class RecipeContainer extends React.Component {
+class RecipesContainer extends React.Component {
   state = {
     book: null
   };
@@ -23,24 +23,17 @@ class RecipeContainer extends React.Component {
     }
   } 
 
-  componentWillReceiveProps(){
-    //console.log("recipes will be recieved")
-  }
-
   render() {
     return (
     <>
       <div className={styles.containergrid}>
         <div className={styles.item1}>
-           <MealFilterContainer
-            history={this.props.history}
-            match={this.props.match}
-          /> 
+           <MealFilterContainer/> 
         </div>
         <div className={styles.item2}>
         {
           (this.props.recipes.length )
-          ?<RecipeCardsContainer 
+          ?<RecipesCardsContainer 
             recipes={this.props.recipes}
             history={this.props.history}
             match={this.props.match}
@@ -82,6 +75,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipesContainer);

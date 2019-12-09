@@ -29,13 +29,10 @@ class FilterGroupButtons extends Component {
           title={filter.group_title}
         />
         <Checkbuttons
-          key={filter.foods[1]}
           foodGroup={filter.group_title}
-          onCriteriaCycle={this.props.onCriteriaCycle}
+          enableSearchButton={this.props.enableSearchButton}
           foods={filter.foods}
-          hiddenCategory={this.state.hiddenCategory}  
-          history={this.props.history}
-          match={this.props.match}
+          hiddenCategory={this.state.hiddenCategory}
         />
       </div>
     );

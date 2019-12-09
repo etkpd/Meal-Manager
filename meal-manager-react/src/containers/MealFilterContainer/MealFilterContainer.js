@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {fetchFilters} from "../../actions/FiltersActions"
+import {fetchFilteredRecipes} from "../../actions/RecipesActions"
 import * as Button from "../../components/Buttons/Button"
 //import { Redirect } from 'react-router-dom';
  //import axios from 'axios';
@@ -18,40 +19,49 @@ class MealFilterContainer extends React.Component {
   }
 
   componentDidMount() {
-    console.log('MealFilterContainer mounted')
      if (this.props.filters.length<1){
       this.props.fetchFilters() 
     }
   }
-
-  onCriteriaCycle = () => {
+ 
+  enableSearchButton = () => {
     if(!this.state.searchButtonEnabled){
       this.setState({ searchButtonEnabled: true});
     }
+  }
+ 
+ /*   componentWillMount=() =>{
+    this.props.fetchFilters() 
+  } */
+
+  queryRecipes= () => {
+    this.props.fetchFilteredRecipes()
+    this.setState({searchButtonEnabled: false})
   }
 
   render() {
     const {filters} = this.props;
 
+    if(filters.length<1){
+      return null
+    }
+    
     return (
     <div className={styles.mealfiltercontainer}>
-
-      {(this.props.filters.length<1)
-        ? null
-        : filters.map(filter => (
-          <>
+      {console.log("MealFilterContainer was rendered")}
+      {
+        filters.map(filter => (
           <FilterGroupButtons
+            key={filter.group_title}
             filter={filter}
-            onCriteriaCycle={this.onCriteriaCycle}
-            history={this.props.history}
-            match={this.props.match}
+            enableSearchButton={this.enableSearchButton}
           />
-          </>
         )) 
       }
       <Button.Request_Recipes
         label='Search Recipes'
         enabled={this.state.searchButtonEnabled}
+        onClick={this.queryRecipes}
         type='button'
       />
     </div>
@@ -67,7 +77,8 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchFilters : () => dispatch(fetchFilters())
+    fetchFilters : () => dispatch(fetchFilters()),
+    fetchFilteredRecipes: () => dispatch(fetchFilteredRecipes()) 
   }
 }
 

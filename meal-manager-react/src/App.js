@@ -8,7 +8,11 @@ import MealSchedulePage from "./pages/MealSchedulePage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import PriceLoggerPage from "./pages/PriceLoggerPage";
 import RecipesPage from "./pages/RecipesPage";
+import RecipePage from "./pages/RecipePage";
 import TopNagivation from "./components/navigation/TopNagivation";
+
+import './styles/App.scss'
+import RootModal from './components/modals/RootModal';
 
 const App = () => (
   <>
@@ -17,10 +21,15 @@ const App = () => (
     <Route path="/mealschedule" exact component={MealSchedulePage}/>
     <Route path="/catalog" exact component={CatalogPage}/>
     <Route path="/pricelogger" exact component={PriceLoggerPage}/>
+    {/* 
+    <Route path="/recipes/filter" component={RecipesPage}/>
+    */}    
     <Route path="/recipes" component={RecipesPage}/>
+    <Route path="/recipe" component={RecipePage}/>    
     <Route path="/login"  exact component={LoginPage}  />
     <Route path="/signup" exact component={SignupPage} />
     <Route path="/forgot_password" exact component={ForgotPasswordPage} />
+    <RootModal/>
   </>
 ); 
 

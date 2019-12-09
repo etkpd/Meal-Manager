@@ -44,7 +44,7 @@ class Checkboxes extends React.Component {
     } 
     let foodgroupCriteriaObject = Object.create(null)
     foodgroupCriteriaObject[foodGroup] = criteriaObj
-    this.props.onCriteriaCycle()
+    this.props.enableSearchButton()
     this.props.editRecipeCriteria(foodgroupCriteriaObject)
   }
   render() {

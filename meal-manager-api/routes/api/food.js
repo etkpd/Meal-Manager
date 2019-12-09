@@ -1,5 +1,6 @@
 const express = require('express');
 const queryString = require('query-string');
+const axios = require('axios')
 
 // Recipe Model
 const Food = require('../../models/Food');
@@ -58,7 +59,7 @@ router.post("/", (req, res) => {
 });
 
 
-// @route    Post api/food/filters
+// @route    Get api/food/filters
 // @desc     Sends filter categories and filter options for use in CriteriaFilters component
 // @access   Private
 router.get("/filters", (req, res) => {
@@ -79,4 +80,29 @@ router.get("/filters", (req, res) => {
     });
 });
 
+// @route    Get api/food/ingredient
+// @desc     Sends ingredient nutrition infomation. Acquires nutrition infomation from Nutritionix API 
+// @access   Private
+router.post("/ingredient", (req, res) => {
+  const ingredient = req.body.ingredient
+  
+  axios.request({
+    url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
+    method: 'post',
+    data: {
+      query: ingredient
+    },
+    headers: {
+      'Content-Type': 'application/json', 
+      'x-app-id': process.env.NUTRITIONIX_APP_ID, 
+      "x-app-key": process.env.NUTRITIONIX_APP_KEY
+    }
+  })
+    .then(response => {
+      res.json(response.data.foods[0])
+    })
+});
+
 module.exports = router;
+
+

@@ -1,0 +1,61 @@
+.titleInput {
+  font-size: 49px;
+  width: auto;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: none;
+}
+
+.uploadArea{
+  height: 400px;
+  width: 800px;
+  background-color: #fff;
+  border: 2px dashed rgb(187, 186, 186);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+.FileInput{
+  display: none;
+}
+
+.page{
+  width: 1100px;
+  margin: auto;
+}
+
+
+.SectionTitle{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.SectionUploadPhoto{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.SectionSecond{
+  display: grid;
+  grid-auto-columns: 1fr 1fr;
+  grid-auto-flow: row;
+  //max-width: 900px;
+}
+
+.SubSectionIngredients{
+  align-self: start;
+  grid-column: 1;
+}
+
+.SubSectionDuration{
+  align-self: start;
+  grid-column: 2;
+  justify-self: center;
+}
+
