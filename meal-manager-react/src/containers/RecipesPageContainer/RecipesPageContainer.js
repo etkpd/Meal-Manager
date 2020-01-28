@@ -1,6 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
+import { Link } from "react-router-dom"
 
+import * as Button from "../../components/Buttons/Button"
 import RecipesCardsContainer from '../RecipesCardsContainer/RecipesCardsContainer';
 // eslint-disable-next-line
 import MealFilterContainer from '../MealFilterContainer/MealFilterContainer';
@@ -30,16 +32,30 @@ class RecipesContainer extends React.Component {
         <div className={styles.item1}>
            <MealFilterContainer/> 
         </div>
+        <div className={styles.recipeButton}>
+          <Link to="/recipe/editor/0" className={styles.nav__link}>
+            <Button.Add
+              label='Add Recipes'
+              type='button'
+            />
+          </Link>
+          {/* <Button.Request_Recipes
+            label='Search Recipes'
+            enabled={this.state.searchButtonEnabled}
+            onClick={this.queryRecipes}
+            type='button'
+          /> */}
+        </div>
         <div className={styles.item2}>
         {
           (this.props.recipes.length )
-          ?<RecipesCardsContainer 
-            recipes={this.props.recipes}
-            history={this.props.history}
-            match={this.props.match}
-            location={this.props.location} 
-           />
-          :null
+            ? <RecipesCardsContainer 
+                recipes={this.props.recipes}
+                history={this.props.history}
+                match={this.props.match}
+                location={this.props.location} 
+              />
+            : null
         }
         </div>
       {/*   <div className={styles.item3}>

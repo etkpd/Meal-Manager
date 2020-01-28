@@ -1,0 +1,28 @@
+.input{
+  border: none;
+}
+
+.bulletPointIcon{
+  position: relative;
+  width: 28px;
+  align-self: start;
+}
+
+.icon{
+  position: absolute;
+  z-index: 100;
+  width: 24px;
+  margin: 0;
+  padding: 0;
+  top: 9px;
+}
+
+.listItem{
+  height: 36px;
+  display: flex;
+}
+
+.textarea{
+  resize: vertical;
+  width: 100%;
+}

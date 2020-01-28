@@ -1,0 +1,36 @@
+.button {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  border-radius: 2px;
+  top: 0px;
+  right: 0px;
+  cursor: pointer;
+  
+  .containerCross{
+    position: relative;
+    width: 32px;
+    height: 32px;
+    
+    & > span {
+      background-color: #B1B1B1;
+      display: block;
+      height: 4px;
+      position: absolute;
+      top: 50%;
+      margin-top: -2px;
+      left: 3px;
+      width: 26px;
+      display: flex;
+      justify-content: space-between;
+      &.left {
+        transform: rotate(45deg);
+        transform-origin: center;
+      }
+      &.right {
+        transform: rotate(-45deg);
+        transform-origin: center;
+      }
+    }
+  }
+}

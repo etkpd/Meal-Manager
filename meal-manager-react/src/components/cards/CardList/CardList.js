@@ -11,14 +11,15 @@ const CardList = ({ recipes }) => {
           return (
               <Card
                 key={i}
-                author={recipes[i].author}
-                title={recipes[i].title}
-                image={recipes[i].image}
-                ingredients={recipes[i].ingredients}
-                directions={recipes[i].directions}
-                calories_per_serving={recipes[i].calories_per_serving}
-                total_servings={recipes[i].total_servings}
-                full_cook_time={recipes[i].full_cook_time}
+                recipeNumber={recipe.recipeNumber}
+                title={recipe.title}
+                image={recipe.photo.thumb}
+                calories_per_serving={recipe.calories_per_serving}
+                total_servings={recipe.total_servings}
+                cook_time_hr={recipe.cook_time_hr}
+                cook_time_min={recipe.cook_time_min}
+                prep_time_hr={recipe.prep_time_hr}
+                prep_time_min={recipe.prep_time_min}
               />
           );
         })

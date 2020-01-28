@@ -22,7 +22,6 @@ class AlertIconWithModal extends Component {
           className={stylesAlertIconWithModal.main}
           onClick={this.openModalInComponent} 
         >
-          {console.log("food details",this.props.foodDetails)}
           <CautionSVG
             className={`
               ${stylesAlertIconWithModal.svg}

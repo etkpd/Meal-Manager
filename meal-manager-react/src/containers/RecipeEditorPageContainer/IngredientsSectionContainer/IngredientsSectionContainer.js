@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import UnorderedList from '../../../components/List/UnorderedList/UnorderedList'
 
 class IngredientsSectionContainer extends Component {
-
-  
   ingredientWasSubmitted = async (ingredient, index)=>{
     /* if(ingredient !== this.state.ingredientsMap.get(index)){
       console.log('ingredient:', ingredient)
@@ -70,8 +69,6 @@ class IngredientsSectionContainer extends Component {
     } 
     console.log(this.state.ingredientsArray)
   }
-
-
 
   render() {
     return (

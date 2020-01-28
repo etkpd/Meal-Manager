@@ -3,3 +3,13 @@
   padding: 0px 0px;
   
 }
+
+.filterArea{
+  > div{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+    margin: 5px 0 5px 0;
+    &:last-child{
+      border-bottom: none;
+    }
+  }
+}

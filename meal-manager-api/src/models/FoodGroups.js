@@ -23,4 +23,6 @@ schema.methods.addFoodToFoodGroup = function addFoodToFoodGroup(foodID, food_nam
   this.foodsRefList.push({foodID, food_name});
 }
 
+//schema.index({ group_title: "text" })
+
 module.exports = mongoose.model("FoodGroups", schema);

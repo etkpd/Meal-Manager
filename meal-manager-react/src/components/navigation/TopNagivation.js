@@ -11,11 +11,8 @@ const TopNagivation = () => {
         <ul className={styles.nav}>
           <li className={styles.nav__item}>
             <Link to="/" className={styles.nav__link}>Home</Link>
- 
-            {/* <Link to={{pathname: router.location.pathname}}  className={styles.nav__link}>Home</Link> */}
-
           </li>
-          <li className={styles.nav__item}>
+          {/* <li className={styles.nav__item}>
             <Link to="/mealschedule" className={styles.nav__link}>Meal Schedule</Link>
           </li>
           <li className={styles.nav__item}>
@@ -23,7 +20,7 @@ const TopNagivation = () => {
           </li>
           <li className={styles.nav__item}>
             <Link to="/pricelogger" className={styles.nav__link}>Price Logger</Link>
-          </li>
+          </li> */} 
           <li className={styles.nav__item}>
             <Link to="/recipes" className={styles.nav__link}>Recipes</Link>
           </li>

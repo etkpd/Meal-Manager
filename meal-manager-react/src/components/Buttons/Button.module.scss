@@ -2,16 +2,18 @@
   background-color:#ffffff;
   border-radius:6px;
   display:inline-block;
+  height: 38px;
   cursor:pointer;
-  padding:3px 17px;
+  //padding:3px 17px;
   text-decoration:none;
   border: 2px solid #FFFFFF;
   color:#000000;
   font-family:"Roboto-Regular";
-  font-size:14px;
+  font-size:18px;
   text-decoration:none;
   text-align: center;
-  max-width: 132px;
+  //max-width: 132px;
+  width: 126px;
 }
 
 .request_recipes{
@@ -30,8 +32,22 @@
   font-size: 22px;
 }
 
+.confirm{
+  background-color: #07BC03;
+  color: #ffffff;
+  font-weight: 600
+}
+
 .secondary{
-  background-color:#FCF31A;
+  background-color:#A9A9A9;
+  color: #ffffff;
+  font-weight: 600
+}
+
+.add{
+  background-color: #009873;
+  color: #ffffff;
+  font-weight: 600
 }
 /* .myButton:hover {
   background-color:#e42fa85d;
@@ -42,4 +58,3 @@
   position:relative;
   top:1px;
 } */
-

@@ -1,7 +1,7 @@
 const express = require('express');
 
 // Recipe Model
-const FoodGroups = require('../../models/FoodGroups');
+const FoodGroups = require('../models/FoodGroups');
 
 const router = express.Router();
 

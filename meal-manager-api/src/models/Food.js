@@ -5,64 +5,76 @@ const schema = new mongoose.Schema({
       type: String,
       required: true 
     },
-    group_title: {
-      type: String,
-      required: true
+    serving_qty: {
+      type: Number
     },
-    calories: {
+    serving_unit: {
       type: String
     },
-    serving_size_grams: {
+    serving_weight_grams: {
       type: Number
     },
-    total_fat: {
+    nf_calories: {
       type: Number
     },
-    saturated_fat: {
+    nf_total_fat: {
       type: Number
     },
-    trans_fat: {
+    nf_saturated_fat: {
       type: Number
     },
-    polyunsaturated_fat: {
+    nf_trans_fat: {
       type: Number
     },
-    monounsaturated_fat: {
+    nf_polyunsaturated_fat: {
       type: Number
     },
-    cholesterol: {
+    nf_monounsaturated_fat: {
       type: Number
     },
-    sodium: {
+    nf_cholesterol: {
       type: Number
     },
-    potassium: {
+    nf_sodium: {
       type: Number
     },
-    total_carbohydrates: {
+    nf_total_carbohydrates: {
       type: Number
     },
-    dietary_fiber: {
+    nf_dietary_fiber: {
       type: Number
     },
-    sugars: {
+    nf_sugars: {
       type: Number
     },
-    protein: {
+    nf_protein: {
       type: Number
     },
-    vitamin_a: {
+    nf_vitamin_d: {
       type: Number
     },
-    vitamin_c: {
+    nf_calcium: {
       type: Number
     },
-    calcium: {
+    nf_iron: {
       type: Number
     },
-    iron: {
+    nf_potassium: {
       type: Number
+    },
+    food_group: {
+      type: String
+    },
+    photo: {
+      thumb:{
+        type: String,
+      },
+      highres: {
+        type: String,
+      }
     }
 });
+
+schema.index({ food_name: "text" })
 
 module.exports = mongoose.model("Food", schema);

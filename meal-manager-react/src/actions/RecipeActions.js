@@ -1,14 +1,14 @@
 import {
   ADD_INGREDIENT_DETAILS,
   EDIT_INGREDIENT_DETAILS,
-  REMOVE_INGREDIENT_DETAILS
+  REMOVE_INGREDIENT_DETAILS,
+  CLEAR_ALERT_INGREDIENT, 
 } from "../types";
 import api from "../api";
 
 
 export const fetchIngredientDetails = (ingredient, index) => async (dispatch, getState) => {
   try {
-    console.log(ingredient,index)
     let response =  ingredient !== "" ? await api.recipes.fetchIngredientDetailsV2(ingredient) : null
     if(index >= getState().recipe.recipeIngredientsDetailed.length) {
       dispatch({
@@ -35,4 +35,11 @@ export const fetchIngredientDetails = (ingredient, index) => async (dispatch, ge
       errors.forEach(error => console.log(error));
     }
   } 
+};     
+
+export const clearIngredientAlert = (index) => (dispatch) => {
+  dispatch({
+    type: CLEAR_ALERT_INGREDIENT,
+    index: index
+  })
 };     

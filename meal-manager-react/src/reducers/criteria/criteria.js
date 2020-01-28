@@ -7,7 +7,11 @@ const INITIAL_STATE = {
    beef: {},
    chicken: {},
    grain: {},
-   vegetable: {}
+   vegetable: {},
+   fruit: {},
+   dairy: {},
+   fat: {},
+   legume: {}
 }
 
 export default function(state = INITIAL_STATE, action = {}) {

@@ -34,11 +34,11 @@ $input-disabled-solid-color: orange;
     // Text Label Style
     + span{
       position: relative;
-      padding-left: 23px;
+      padding-left: 19px;
       cursor: pointer;
       display: inline-block;
-      height: 30px;
-      line-height: 25px;
+      height: 26px;
+      line-height: 20px;
       font-size: .8rem;
       user-select: none;
     }
@@ -95,8 +95,8 @@ $input-disabled-solid-color: orange;
     }
 
     + span:after  {
-      height: 12px;
-      width: 12px;
+      height: 16px;
+      width: 16px;
       background-color: transparent;
       border: 2px solid $radio-empty-color;
       top: 2px;
@@ -105,9 +105,9 @@ $input-disabled-solid-color: orange;
   }
   .OR{
     + span:before {
-      top: 6px;
-      left: 3px;
-      width: 6px;
+      top: 7px;
+      left: 2px;
+      width: 11px;
       height: 1px;
       border-top: 2px solid transparent;
       border-left: 2px solid transparent;
@@ -117,8 +117,8 @@ $input-disabled-solid-color: orange;
 
     + span:after {
       top: 2px;
-      width: 12px;
-      height: 12px;
+      width: 16px;
+      height: 16px;
       border: 2px solid $secondary-OR-color;
       background-color: $secondary-OR-color;
       z-index: 0;
@@ -126,10 +126,10 @@ $input-disabled-solid-color: orange;
   }
   .AND{
     + span:before {
-      top: 4px;
-      left: 1px;
-      width: 3px;
-      height: 8px;
+      top: 3px;
+      left: 0px;
+      width: 7px;
+      height: 12px;
       border-top: 2px solid transparent;
       border-left: 2px solid transparent;
       border-right: 2px solid $input-AND-background;
@@ -140,8 +140,8 @@ $input-disabled-solid-color: orange;
 
     + span:after {
       top: 2px;
-      width: 12px;
-      height: 12px;
+      width: 16px;
+      height: 16px;
       border: 2px solid $secondary-AND-color;
       background-color: $secondary-AND-color;
       z-index: 0;
@@ -152,7 +152,7 @@ $input-disabled-solid-color: orange;
       top: 0px;
       left: 11px;
       width: 0px;
-      height: 11px;
+      height: 14px;
       border-top: 2px solid transparent;
       border-left: 2px solid $input-NOT-background;
       border-right: 2px solid transparent;
@@ -163,8 +163,8 @@ $input-disabled-solid-color: orange;
 
     + span:after {
       top: 2px;
-      width: 12px;
-      height: 12px;
+      width: 16px;
+      height: 16px;
       border: 2px solid $secondary-NOT-color;
       background-color: $secondary-NOT-color;
       z-index: 0;

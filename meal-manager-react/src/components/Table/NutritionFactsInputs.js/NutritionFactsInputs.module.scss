@@ -1,0 +1,113 @@
+.nutritionFacts{
+  border: 1px solid #000;
+  max-width: 310px;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 10px;
+  > div:first-of-type{
+    border-top: 0;
+    div{
+      line-height: 19px;
+      border-top: 0;
+    }
+  }
+  > div {
+    margin: 2px 0 0;
+    border-top: 10px solid #000;
+    border-bottom: 0;
+    div:first-child{
+      border-top:none;
+    }
+    div {
+      border-top: 1px solid #000;
+    }
+  }
+  div{
+    span:nth-child(2n){
+      float:right;
+    }
+  }
+}
+
+.nutritionLabelTitle{
+  font-family: Arial;
+  font-size: 34px;
+  font-weight: 800;
+  border-bottom: 1px solid #000;
+}
+
+
+.recipeTitle{
+  font-size: 15px;
+}
+
+.servingSize{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.calorieInfo{
+  div:first-child {
+    font-size: 11px;
+    border-top: none;
+    font-weight: 600;
+    padding-top: 3px;
+    padding-bottom:4px;
+  }
+  div:nth-child(2) {
+    border:none;
+    span:first-child{
+      font-weight: 800;
+      font-size: 30px;
+    }
+    span:nth-child(2){
+      font-size: 34px;
+      float: right;
+      font-weight: 800;
+    }
+  }
+}
+
+.nutritionInfo{
+  margin: 2px 0 0;
+  .subFacts{
+    span:first-child{
+      font-weight: 400;
+      margin-left: 8px;
+    }
+  }
+  div{
+    span:first-child{
+      font-weight: 600;
+    }
+    span:nth-child(2n){
+      float: none;
+      margin-left: 5px;
+    }
+    span:nth-child(3){
+      float: right;
+      font-weight: 600;
+    }
+  }
+}
+
+.vitaminsMineralsInfo{
+  margin: 2px 0 0;
+  div{
+    span:nth-child(2n){
+      float: none;
+      margin-left: 5px;
+    }
+    span:nth-child(3){
+      float: right;
+    }
+  }
+}
+
+.fontBold{
+  font-weight: 600;
+}
+
+.textRight{
+  text-align: right;
+}

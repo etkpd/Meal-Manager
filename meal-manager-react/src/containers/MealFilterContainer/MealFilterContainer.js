@@ -49,15 +49,17 @@ class MealFilterContainer extends React.Component {
     return (
     <div className={styles.mealfiltercontainer}>
       {console.log("MealFilterContainer was rendered")}
-      {
-        filters.map(filter => (
-          <FilterGroupButtons
-            key={filter.group_title}
-            filter={filter}
-            enableSearchButton={this.enableSearchButton}
-          />
-        )) 
-      }
+      <div className={styles.filterArea}>
+        {
+          filters.map(filter => (
+            <FilterGroupButtons
+              key={filter.group_title}
+              filter={filter}
+              enableSearchButton={this.enableSearchButton}
+            />
+          )) 
+        }
+      </div>
       <Button.Request_Recipes
         label='Search Recipes'
         enabled={this.state.searchButtonEnabled}

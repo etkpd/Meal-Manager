@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from "react-router-dom"
+import { Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import CatalogPage from "./pages/CatalogPage";
@@ -23,9 +23,10 @@ const App = () => (
     <Route path="/pricelogger" exact component={PriceLoggerPage}/>
     {/* 
     <Route path="/recipes/filter" component={RecipesPage}/>
-    */}    
+    */}   
     <Route path="/recipes" component={RecipesPage}/>
-    <Route path="/recipe" component={RecipePage}/>    
+    <Route exact path="/recipe/editor/0" component={RecipePage}/>
+    <Route exact path="/recipe/:id" component={RecipePage}/>
     <Route path="/login"  exact component={LoginPage}  />
     <Route path="/signup" exact component={SignupPage} />
     <Route path="/forgot_password" exact component={ForgotPasswordPage} />

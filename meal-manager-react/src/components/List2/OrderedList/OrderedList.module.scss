@@ -1,0 +1,44 @@
+.input{
+  border: none;
+}
+
+.listItem{
+  display: grid;
+  grid-template-columns: 28px auto;
+  width: 100%;
+  margin: 9px 0 14px 0;
+}
+
+.bulletPointIcon{
+  position: relative;
+  width: 28px;
+  height: 15px;
+  align-self: start;
+}
+
+.icon{
+  position: absolute;
+  z-index: 100;
+  width: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.icon__proceeding{
+  top: -2px;
+}
+
+.icon__final{
+  top: -3px;
+}
+
+.number{
+  z-index: 200;
+  position: absolute;
+  color: white;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  width: 23px;
+  text-align: center;
+}
